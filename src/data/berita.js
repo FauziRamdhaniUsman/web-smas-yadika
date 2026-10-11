@@ -1,0 +1,6 @@
+export const dataBerita = [
+  { id: "1", title: "Penerimaan Peserta Didik Baru (PPDB)", date: "10 Oktober 2026", summary: "Pendaftaran siswa baru SMAS YADIKA 11 telah dibuka.", content: "Pendaftaran siswa baru SMAS YADIKA 11 Jatirangga gelombang 1 resmi dibuka. Segera daftarkan diri Anda dan nikmati fasilitas pendidikan terbaik di Kota Bekasi.", image: "/ppdb.jpg" },
+  { id: "2", title: "Juara Turnamen Basket Tingkat Kota Bekasi", date: "5 Oktober 2026", summary: "Tim Basket SMAS YADIKA 11 berhasil meraih juara 3.", content: "Tim Basket kebanggaan SMAS YADIKA 11 berhasil membawa pulang piala Juara 3 dalam turnamen antar SMA se-Kota Bekasi yang diselenggarakan di GOR Patriot.", image: "/basket.jpg" },
+  { id: "3", title: "Pentas Seni Peringatan HUT Sekolah", date: "20 September 2026", summary: "Perayaan ulang tahun sekolah dimeriahkan dengan pentas seni.", content: "Ulang tahun SMAS YADIKA 11 dirayakan dengan meriah melalui acara pentas seni yang menampilkan bakat-bakat luar biasa dari para siswa.", image: "/pensi.jpg" },
+  { id: "4", title: "Pelatihan IT untuk Siswa", date: "15 September 2026", summary: "Peningkatan kompetensi digital siswa melalui workshop IT.", content: "Menyesuaikan dengan era digital, sekolah mengadakan pelatihan keterampilan IT dasar untuk siswa agar lebih siap menghadapi tantangan global.", image: "/berita1.jpg" },
+];

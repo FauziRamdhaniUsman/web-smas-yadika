@@ -1,39 +1,36 @@
 import { dataBerita } from '@/data/berita';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
+
+// Menghasilkan daftar ID berita secara statis saat proses build
+export async function generateStaticParams() {
+  return dataBerita.map((item) => ({
+    id: item.id.toString(),
+  }));
+}
 
 export default async function DetailBerita({ params }) {
-  const resolvedParams = await params;
-
-  const berita = dataBerita.find((b) => b.id == resolvedParams.id);
+  const { id } = await params;
+  const berita = dataBerita.find((item) => item.id.toString() === id);
 
   if (!berita) {
-    return (
-      <div className="container mx-auto px-4 py-20 text-center">
-        <h1 className="text-2xl font-bold text-red-600">Berita tidak ditemukan!</h1>
-        <Link href="/berita" className="text-blue-600 mt-4 inline-block hover:underline">Kembali ke daftar berita</Link>
-      </div>
-    );
+    notFound();
   }
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <Link href="/berita" className="text-blue-600 font-medium mb-6 inline-block hover:underline">
+    <div className="container mx-auto px-4 py-12 max-w-3xl">
+      <Link href="/berita" className="text-blue-600 hover:underline mb-6 inline-block font-medium">
         &larr; Kembali ke Berita
       </Link>
-      
-      <div className="bg-white rounded-lg shadow-md overflow-hidden p-6 md:p-10">
-        <h1 className="text-3xl font-bold mb-4 text-gray-800">{berita.title}</h1>
-        <p className="text-gray-500 mb-6">{berita.date}</p>
-        
-        <img 
-          src={berita.image} 
-          alt={berita.title} 
-          className="w-full h-auto max-h-[400px] object-cover rounded mb-8"
-        />
-        
-        <div className="text-gray-700 leading-relaxed text-lg">
-          {berita.content}
-        </div>
+      <h1 className="text-3xl font-bold text-gray-900 mb-4">{berita.title}</h1>
+      <p className="text-gray-500 text-sm mb-6">{berita.date}</p>
+      <img 
+        src={berita.image} 
+        alt={berita.title} 
+        className="w-full h-80 object-cover rounded-lg mb-6 shadow-sm" 
+      />
+      <div className="text-gray-700 leading-relaxed space-y-4 text-justify">
+        <p>{berita.content || berita.summary}</p>
       </div>
     </div>
   );
